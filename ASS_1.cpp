@@ -2,10 +2,15 @@
 /*Group Member List
 Member Name 1: CHU CHENG QING
 Matric Number:A23CS0218
-Section:
-Member Name 2:
-Matric Number:
-Section: 
+Section:9
+
+Member Name 2: CHEN WEI JAY NICKOLAS
+Matric Number:A23CS5028
+Section:9
+
+Member Name 3: LIM XIN ROU
+Matric Number:A23CS0240
+Section:9
 */
 
 #include <iostream>
@@ -32,15 +37,6 @@ class List{
     void task4(ItemNode*,int);
     void task5(int);
     void task6();
-    // void display()
-    // {
-    //     Temp = head;
-    //     while(Temp->aft!=NULL)
-    //     {
-    //         cout<<Temp->name<<" "<<Temp->price<<endl;
-    //         Temp = Temp->aft;
-    //     }
-    // }
 };
 
 void List:: task1(ItemNode* item)
@@ -71,7 +67,7 @@ void List:: task3()
         cout<<'['<<Temp->name<<'\t'<<Temp->price<<"]\t";
         Temp = Temp->bef;
     }
-    cout<<endl;
+    cout<<endl<<endl;
     
 }
 void List::task4(ItemNode* item, int index) {
@@ -118,10 +114,45 @@ void List::task4(ItemNode* item, int index) {
 }
 
 void List:: task5(int x){
+	if (x < 1)
+	{
+		cout << "Invalid index. Index must be 1 or greater." << endl;
+	}
+	
+	ItemNode* prevNode = NULL;
+    ItemNode* currNode = head;
+    int currIndex = 1;
+
+    while (currNode && currIndex < x) {
+        prevNode = currNode;
+        currNode = currNode->aft;
+        currIndex++;
+    }
+	
+	if (currIndex == x)
+	{
+		prevNode->aft = currNode->aft;
+		if(currNode->aft)
+			currNode->aft->bef = prevNode;
+		delete currNode;
+	}
+	else if(currIndex == 1)
+	{
+		head = currNode->aft;
+		if(head)
+			head->bef = NULL;
+		delete currNode;
+	}
+		
 
 }
-void List:: task6(){
-
+void List:: task6()
+{
+	if(tail->aft == NULL)
+	{
+		tail = tail->bef;
+		delete tail;
+	}
 }
 int main()
 {
@@ -137,9 +168,9 @@ ItemList.task3();
 ItemList.task4(n3, 2);
 ItemList.task4(n4, 2);
 ItemList.task3();
-// ItemList.task5(3);
-// ItemList.task3();
-// ItemList.task6();
-// ItemList.task3();
+ItemList.task5(3);
+ItemList.task3();
+ItemList.task6();
+ItemList.task3();
 return 0;
 }
