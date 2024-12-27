@@ -16,7 +16,7 @@ Section:9
 #include <iostream>
 #include <iomanip>
 using namespace std;
-class ItemNode{
+class ItemNode{ // Done by CHU CHENG QING
     public:
     string name;
     float price;
@@ -26,7 +26,7 @@ class ItemNode{
     ItemNode(string n, float p): name(n), price(p){}
 };
 
-class List{
+class List{// Done by CHU CHENG QING
     private:
     ItemNode* head = NULL;
     ItemNode* tail = NULL;
@@ -39,7 +39,7 @@ class List{
     void task6();
 };
 
-void List:: task1(ItemNode* item)
+void List:: task1(ItemNode* item)// Done by CHU CHENG QING
 {
     if(head == NULL && tail == NULL)
     {
@@ -50,14 +50,14 @@ void List:: task1(ItemNode* item)
     
 }
 
-void List:: task2(ItemNode* item)
+void List:: task2(ItemNode* item)// Done by CHEN WEI JAY NICKOLAS
 {
     item->aft = head;
     head->bef = item;
     head = item;
     
 }
-void List:: task3()
+void List:: task3()// Done by LIM XIN ROU
 {
     ItemNode* Temp;    
     cout<<"Print backward:"<<endl;
@@ -70,7 +70,7 @@ void List:: task3()
     cout<<endl<<endl;
     
 }
-void List::task4(ItemNode* item, int index) {
+void List::task4(ItemNode* item, int index) {// Done by CHU CHENG QING
     if (index < 1) {
         cout << "Invalid index. Index must be 1 or greater." << endl;
         return;
@@ -113,7 +113,7 @@ void List::task4(ItemNode* item, int index) {
     }
 }
 
-void List:: task5(int x){
+void List:: task5(int x){// Done by CHEN WEI JAY NICKOLAS
 	if (x < 1)
 	{
 		cout << "Invalid index. Index must be 1 or greater." << endl;
@@ -146,7 +146,7 @@ void List:: task5(int x){
 		
 
 }
-void List:: task6()
+void List:: task6()// Done by LIM XIN ROU
 {
 	if(tail->aft == NULL)
 	{
